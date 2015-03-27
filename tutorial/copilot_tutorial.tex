@@ -465,7 +465,7 @@ $T$ & $T$ & $F$
 latch :: Stream Bool -> Stream Bool
 latch x = y
   where
-  y = if x then not z else z
+  y = ifThenElse x (not z) z
   z = [False] ++ y
 \end{code}
 \end{minipage}
@@ -500,14 +500,14 @@ $T$ & $F$ & $\mathtt{cnt}_{i-1} + 1$ \\
 \end{minipage}
 \hspace{1cm}
 \begin{minipage}{0.6\linewidth}
-\begin{code}
+  \begin{code}
 counter :: Stream Bool -> Stream Bool 
         -> Stream Int32
 counter inc reset = cnt
   where 
-  cnt = if reset then 0
-          else if inc then z + 1
-                 else z
+  cnt = ifThenElse reset
+        0
+        $ ifThenElse inc (z + 1) z
   z = [0] ++ cnt
 \end{code}
 \end{minipage}
