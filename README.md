@@ -1,3 +1,5 @@
+# STOP! The official Copilot repos are now at [https://github.com/Copilot-Language/](https://github.com/Copilot-Language).
+
 Overview
 ========
 This package discusses issues with Copilot and includes documentation.
